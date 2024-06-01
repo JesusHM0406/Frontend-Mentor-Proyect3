@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway';
+}
+
+:root{
+    font-size: 14px;
+    --Pale-Blue: hsl(243, 100%, 93%);
+    --Grayish-Blue: hsl(229, 7%, 55%);
+    --Dark-Blue: hsl(228, 56%, 26%);
+    --Very-Dark-Blue: hsl(229, 57%, 11%);
+}
+
+body{
+    min-height: 100dvh;
+    background-color: var(--Very-Dark-Blue);
+    background-image: url("../images/bg-desktop.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    color: var(--Pale-Blue);
+}
+
+.container-container{
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    max-width: 950px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 1.5rem;
+}
+
+.left-section, .storage{
+    background-color: var(--Dark-Blue);
+    padding: 2.4rem;
+    border-radius: 9px;
+    background-image: linear-gradient();
+}
+
+.left-section{
+    max-width: 35%;
+    width: 350px;
+    min-height: 180px;
+    border-radius: 9px 100px 9px 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.icons-container{
+    display: flex;
+    gap: 15px;
+}
+
+.left-section .icons-container .icon{
+    width: 45px;
+    height: 48px;
+    background-color: var(--Very-Dark-Blue);
+    color: var(--Pale-Blue);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.storage{
+    max-width: 62%;
+    width: 650px;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.storage .storage__used span{
+    font-weight: 700;
+}
+
+.storage__bar-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.storage__bar{
+    width: 97%;
+    margin: auto;
+    padding: 3px;
+    background-color: var(--Very-Dark-Blue);
+    border-radius: 10px;
+}
+
+.storage__bar-bar{
+    width: 70%;
+    padding: 6px;
+    background-image: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    border-radius: 10px;
+    position: relative;
+}
+
+.storage__bar-bar::before{
+    content: '';
+    width: 9px;
+    height: 9px;
+    background-color: white;
+    position: absolute;
+    top: 1.5px;
+    right: 1.5px;
+    border-radius: 50%;
+}
+
+.storage__total{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+.storage__left{
+    position: absolute;
+    top: -50px;
+    right: 10px;
+    background-color: white;
+    padding: .8rem 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px 10px 0 10px;
+}
+
+.storage__left::before{
+    content: '';
+    height: 25px;
+    width: 20px;
+    background-color: white;
+    clip-path: polygon(0 0, 100% 100%, 100% 0);
+    position: absolute;
+    right: 0;
+    top: 70px;
+}
+
+.storage__left span{
+    font-weight: 700;
+    color: var(--Very-Dark-Blue);
+    font-size: 3rem;
+}
+
+.storage__left p{
+    color: var(--Grayish-Blue);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .8rem;
+}
+
+@media screen and (max-width: 975px){
+    .container{
+        width: 100%;
+        padding: 30px;
+        flex-direction: column;
+        min-height: 90dvh;
+        align-items: initial;
+        justify-content: initial;
+        gap: 20px;
+    }
+
+    .left-section, .storage{
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .storage .storage__left{
+        height: fit-content;
+        width: fit-content;
+        border-radius: 10px;
+        top: 120px;
+        left: 33%;
+    }
+
+    .storage .storage__left::before{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 450px){
+    body{
+        background-image: url("../images/bg-mobile.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .storage .storage__left{
+        left: 5rem;
+    }
+}
